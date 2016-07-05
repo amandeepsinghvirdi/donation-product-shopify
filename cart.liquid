@@ -75,27 +75,22 @@
               </a>
             </td>
             
+			<!-- Donation Products Code Stars -->
             {% if item.url contains 'donation-product' %}
               <td data-label="{{ 'cart.label.price' | t }}"></td>
               <td data-label="{{ 'cart.label.quantity' | t }}"></td>            
-            
             {% else %}
-            
             <td data-label="{{ 'cart.label.price' | t }}">
               <span class="h3">
                 {{ item.price | money }}
               </span>
             </td>
             <td data-label="{{ 'cart.label.quantity' | t }}">
-              <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" {% if item.variant.metafields.limit.max %} max="{{item.variant.metafields.limit.max}}"{% endif %}>
-              
-              {% if item.quantity > item.variant.metafields.limit.max %}
-              <p class="cart_max-qty"><strong>Max Qty : {{item.variant.metafields.limit.max}}</strong></p>              
-              	  {% assign processCheckout = false %}
-              {% endif %}
-              
+              <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" />
             </td>            
             {% endif %}
+			<!-- Donation Products Code Ends -->
+			
             
             
             

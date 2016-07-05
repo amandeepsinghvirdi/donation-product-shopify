@@ -101,6 +101,8 @@
               {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
             </p>
           {% endif %}
+		  
+		 <!-- End: Donation Product Starts -->
           <div id="other-amount" style="display:none;">
             <label for="OtherAmount">Enter Amount:</label>
             <input type="text" id="OtherAmount"  />
@@ -111,6 +113,8 @@
                 <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
               </button>
             </div>
+			
+		 <!-- End: Donation Product Code -->
         </form>
 
       </div>
@@ -169,8 +173,8 @@
       selector: selector
     });
     
-    variantName = (variant.title).toLowerCase();
-    
+	// Donation Product Code Starts
+    variantName = (variant.title).toLowerCase();    
     if(variantName == 'other'){
     	$('#other-amount').show(0);
         $('#OtherAmount').prop('required', true).val('');
@@ -181,6 +185,7 @@
         $('#Quantity').val(1)
         $('#ProductPrice').show(0);
     }    
+	// Donation Product Code Ends
     
     
   };
@@ -201,7 +206,8 @@
     {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
       $('.selector-wrapper').hide();
     {% endif %}
-    
+	
+	// Donation Product Code Starts
     $('#OtherAmount').keyup(function(){
     	console.log($(this).val());
         otherAmountValue = $(this).val();
@@ -215,6 +221,7 @@
         $('#Quantity').val(otherAmountValue);
         $('#ProductPrice').show(0).text(AmountPriceFormat);
     });
+	// Donation Product Code Ends
     
   });
 </script>
